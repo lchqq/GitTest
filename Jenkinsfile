@@ -19,6 +19,10 @@ pipeline {
         stage('Stage3') {
           steps {
             echo 'Hello Stage3'
+            catchError(catchInterruptions: true, stageResult: 'failure', buildResult: 'failure', message: 'Build failed') {
+              echo 'Over!!'
+            }
+
           }
         }
 
