@@ -21,7 +21,6 @@ pipeline {
             echo 'Hello Stage3'
             catchError(catchInterruptions: true, stageResult: 'failure', buildResult: 'failure', message: 'Build failed') {
               echo 'Over!!'
-              throw new Exception("Throw to stop pipeline")
             }
 
           }
