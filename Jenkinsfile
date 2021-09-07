@@ -4,6 +4,7 @@ pipeline {
     stage('Stage1') {
       steps {
         sh 'echo "Hello Stage 1"'
+        stash(name: 'variable1', allowEmpty: true)
       }
     }
 
@@ -35,5 +36,8 @@ pipeline {
       }
     }
 
+  }
+  environment {
+    list = 'a,b,c'
   }
 }
